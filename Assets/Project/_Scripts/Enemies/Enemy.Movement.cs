@@ -10,8 +10,7 @@ public partial class Enemy
     [Range(0, 5)]
     [SerializeField] private float _yPush;
 
-    [SerializeField] private ParticleSystem _deathCircleParticles;
-
+    [SerializeField] private ParticleSystem _deathParticle;
     private UltimateCharacterLocomotion _locomotion;
 
     private Transform _character;
@@ -32,7 +31,7 @@ public partial class Enemy
         Vector3 pushDirection = Vector3.Normalize(deathPosition - _character.position);
         pushDirection.y = _yPush;
         _locomotion.AddForce(pushDirection * _deathPushForce);
-        _deathCircleParticles.Play();
+        _deathParticle.Play();
     }
     
     private void OnEnable() => DiedEvent += OnDeath;

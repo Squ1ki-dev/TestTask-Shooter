@@ -21,6 +21,7 @@ public partial class Enemy
 
     private IEnumerator DealDamage(IDamageable damageable)
     {
+        // Damage player
         _canDamage = false;
 
         damageable.DealDamage(_damage);
